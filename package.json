@@ -1,0 +1,14 @@
+{
+  "name": "com.ahengine.uhttplight",
+  "version": "1.0.6",
+  "displayName": "UHTTP Light",
+  "description": "UHTTP Light",
+  "unity": "2022.3",
+  "unityRelease": "0f1",
+  "author": {
+    "name": "Hamidreza Karamian"
+  },
+    "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
+}
