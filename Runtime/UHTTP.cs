@@ -31,8 +31,12 @@ namespace UHTTPLight
             if(body != null)
                 req.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(body));
 
-            foreach (var header in headers)
+            foreach (var header in Config.defaultHeaders)
                 req.SetRequestHeader(header.Key, header.Value);
+
+            if(headers != null && headers.Count > 0)
+                foreach (var header in headers)
+                    req.SetRequestHeader(header.Key, header.Value);
 
             return req;
         }
