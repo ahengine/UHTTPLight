@@ -25,7 +25,7 @@ namespace UHTTPLight
 
         public static UnityWebRequest CreateRequest(string appendUrl, string method, string body = null, List<KeyValuePair<string, string>> headers = default)
         {
-            UnityWebRequest req = new UnityWebRequest(config.baseURL + appendUrl, method);
+            UnityWebRequest req = new UnityWebRequest(Config.baseURL + appendUrl, method);
 
             req.downloadHandler = new DownloadHandlerBuffer();
             if(body != null)
@@ -38,7 +38,7 @@ namespace UHTTPLight
         }
 
         public static void AddToken(this UnityWebRequest request) 
-            => request.SetRequestHeader("Authorization",config.useBearerPrefixAuthHeader ? $"Bearer {token}" : token);
+            => request.SetRequestHeader("Authorization",Config.useBearerPrefixAuthHeader ? $"Bearer {token}" : token);
 
         public static void Send(this UnityWebRequest request, Action onComplete = null,bool addTokenIfExist = true, bool haveLoading = false)
         {
