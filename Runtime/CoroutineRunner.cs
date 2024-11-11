@@ -13,7 +13,7 @@ namespace UHTTPLights
         public static Coroutine Run(IEnumerator func) =>
             Instance.StartCoroutine(func);
 
-        public static void Stop(IEnumerator func) =>
-            Instance.StopCoroutine(func);     
+        public static void Stop(Coroutine coroutine) =>
+            Instance.StopCoroutine(coroutine);     
     }
 }
