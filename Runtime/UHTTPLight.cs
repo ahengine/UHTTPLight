@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace UHTTPLights
@@ -21,7 +23,7 @@ namespace UHTTPLights
 
         private static string token = null;
         public static void SetToken(string token) =>
-            UHTTP.token = token;
+            UHTTPLight.token = token;
 
         public static UnityWebRequest CreateRequest(string appendUrl, string method, string body = null, List<KeyValuePair<string, string>> headers = default)
         {
@@ -66,6 +68,15 @@ namespace UHTTPLights
                 }
 
                 onComplete?.Invoke();
+            }
+        }
+
+        public static IEnumerator Stream(this UnityWebRequest request, UnityAction<UnityWebRequest> streamCallback)
+        {
+            while(!request.isDone)
+            {
+                streamCallback?.Invoke(request);
+                yield return new WaitForEndOfFrame();
             }
         }
 
