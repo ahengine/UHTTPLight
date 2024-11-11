@@ -71,7 +71,7 @@ namespace UHTTPLights
             }
         }
 
-        public static IEnumerator Stream(this UnityWebRequest request, UnityAction<UnityWebRequest> streamCallback)
+        public static IEnumerator Stream(this UnityWebRequest request, Action<UnityWebRequest> streamCallback)
         {
             while(!request.isDone)
             {
