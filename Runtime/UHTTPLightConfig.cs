@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UHTTPLight
+namespace UHTTPLights
 {
-    [CreateAssetMenu(fileName = nameof(UHTTPConfig), menuName = nameof(UHTTPConfig), order = 1)]
-    public class UHTTPConfig : ScriptableObject
+    [CreateAssetMenu(fileName = nameof(UHTTPLightConfig), menuName = nameof(UHTTPLightConfig), order = 1)]
+    public class UHTTPLightConfig : ScriptableObject
     {      
         [Tooltip("UHTTPConfig (Don't change asset name), This asset must be in resources folder.")]
         [field:SerializeField] public string baseURL { get; set; }

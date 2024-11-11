@@ -4,12 +4,12 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace UHTTPLight
+namespace UHTTPLights
 {
-    public static class UHTTP 
+    public static class UHTTPLight
     {
-        private static UHTTPConfig config;
-        private static UHTTPConfig Config => config ??= Resources.Load<UHTTPConfig>(nameof(UHTTPConfig));
+        private static UHTTPLightConfig config;
+        private static UHTTPLightConfig Config => config ??= Resources.Load<UHTTPLightConfig>(nameof(UHTTPLightConfig));
 
         private static Action onTokenExpired { get; set; }
         private static void OnTokenExpired(Action action) =>
